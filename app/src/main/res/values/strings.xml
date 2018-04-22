@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">VoiceRecognition</string>
+    <string name="emptystr" />
+    <string name="mic">Tap Mic to Speak</string>
+</resources>

@@ -1,0 +1,15 @@
+hai:Hai how can I help you:promptSpeechInput
+hi:Hai how can I help you:promptSpeechInput
+name:My name is Jarvis.Developed by, Mepco schlenk engineering college students:promptSpeechInput
+your:My name is Jarvis.Developed by, Mepco schlenk engineering college students:promptSpeechInput
+contact:Say Mobile number and name to proceed:AddToContacts
+add:Say Mobile number and name to proceed:AddToContacts
+sms:Say Mobile number and Message to proceed:SMSActivity
+message:Say Mobile number and Message to proceed:SMSActivity
+time: :getTime
+alarm:Say Time in Hours:AlarmActivity
+call:Say number or name:CallActivity
+mail:Say receiver e-Mail address:MailActivity
+help:Say the command to perform desired actions such as adding to contacts, sending mail, calling contact and so on.:promptSpeechInput
+exit: :
+close: :
