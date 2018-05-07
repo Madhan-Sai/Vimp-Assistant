@@ -78,7 +78,7 @@ public class AddToContacts extends AppCompatActivity {
     }
 
     public boolean isNumeric(String string) {
-        String regxp="^(?:(?:\\+|0{0,2})91(\\s*[\\-]\\s*)?|[0]?)?[789]\\d{9}$";
+        String regxp="^(?:(?:\\+|0{0,2})91(\\s*[\\-]\\s*)?|[0]?)?[6789]\\d{9}$";
         if(! string.matches(regxp))
             return false;
       for(int i=0;i<string.length();i++)
