@@ -2,9 +2,12 @@ package com.example.hp.voicerecognition;
 
 import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.RequiresApi;
@@ -50,6 +53,30 @@ public class SMSActivity extends AppCompatActivity {
         Intent main=new Intent(this.getApplicationContext(),VoiceRecognizerActivity.class);
         startActivity(main);
     }
+
+    public String getPhoneNumber(String name, Context context, int count) {
+        String ret = null;
+        String selection = ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME+" like '%" + name +"%'";
+        String[] projection = new String[] { ContactsContract.CommonDataKinds.Phone.NUMBER};
+        Cursor c = context.getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                projection, selection, null, null);
+        if(c.getCount() > 1 && count==0) return "ask num";
+        if(count==0){
+            if (c.moveToFirst()) {
+                ret = c.getString(0);
+            }
+        }
+        else
+        {
+            c.move(count);
+            ret=c.getString(0);
+        }
+        c.close();
+        if(ret==null)
+            ret = "Unsaved";
+        return ret;
+    }
+
     public boolean isNumeric(String string) {
         String regxp="^(?:(?:\\+|0{0,2})91(\\s*[\\-]\\s*)?|[0]?)?[789]\\d{9}$";
         if(! string.matches(regxp))
