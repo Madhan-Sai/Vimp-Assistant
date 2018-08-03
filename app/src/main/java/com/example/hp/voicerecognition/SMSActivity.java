@@ -48,7 +48,7 @@ public class SMSActivity extends AppCompatActivity {
         PendingIntent sentIntent = PendingIntent.getBroadcast(this, 0, new Intent("SMS_SENT"), 0);
         PendingIntent deliveredIntent = PendingIntent.getBroadcast(this, 0, new Intent("SMS_DELIVERED"), 0);
         sms.sendTextMessage(num,null,msg,sentIntent,deliveredIntent);
-        t1.speak("Message sent successfully", TextToSpeech.QUEUE_FLUSH, null);
+        t1.speak(getResources().getString(R.string.msg_success), TextToSpeech.QUEUE_FLUSH, null);
         while(t1.isSpeaking());
         Intent main=new Intent(this.getApplicationContext(),VoiceRecognizerActivity.class);
         startActivity(main);
@@ -114,7 +114,7 @@ public class SMSActivity extends AppCompatActivity {
             else if (isNumeric(result.replaceAll("\\s+", ""))) {
                 num = result.replaceAll("\\s+", "");
                 if(msg==null) {
-                    t1.speak("number received.Say the Message to proceed", TextToSpeech.QUEUE_FLUSH, null);
+                    t1.speak(getResources().getString(R.string.num_ok), TextToSpeech.QUEUE_FLUSH, null);
                     while(t1.isSpeaking());
                     Toast.makeText(getApplicationContext(), num, Toast.LENGTH_SHORT).show();
 
@@ -127,7 +127,7 @@ public class SMSActivity extends AppCompatActivity {
                 msg=result;
                 if(num==null)
                 {
-                    t1.speak("Message received.Say Contact number to proceed", TextToSpeech.QUEUE_FLUSH, null);
+                    t1.speak(getResources().getString(R.string.msg_ok), TextToSpeech.QUEUE_FLUSH, null);
                     while(t1.isSpeaking());
                     promptSpeechInput();
                 }
@@ -135,7 +135,7 @@ public class SMSActivity extends AppCompatActivity {
                     sendSMS();
             }
             else if(! isNumeric(result.replaceAll("\\s+", ""))){
-                t1.speak("Invalid number Try again", TextToSpeech.QUEUE_FLUSH, null);
+                t1.speak(getResources().getString(R.string.invalid_number), TextToSpeech.QUEUE_FLUSH, null);
                 while(t1.isSpeaking());
                 promptSpeechInput();
             }

@@ -56,7 +56,7 @@ public class CallActivity extends AppCompatActivity {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 //TODO
             } else {
-                Toast.makeText(this, "Until you grant the permission, we cannot display the names", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Until you grant the permission, we cannot make calls", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -122,7 +122,7 @@ public class CallActivity extends AppCompatActivity {
             }
             else if (isNumeric(result.replaceAll("\\s+", ""))) {
                     num = result;
-                    t1.speak("Calling", TextToSpeech.QUEUE_FLUSH, null);
+                    t1.speak(getResources().getString(R.string.calling), TextToSpeech.QUEUE_FLUSH, null);
                     while (t1.isSpeaking()) ;
                     num = "tel:" + num;
                     Intent call = new Intent(Intent.ACTION_CALL);
@@ -140,7 +140,7 @@ public class CallActivity extends AppCompatActivity {
             else if(multiplenum){
                 if(result.equals("to")) result="2";
                 num=getPhoneNumber(name,getApplicationContext(),Integer.parseInt(result));
-                t1.speak("Calling", TextToSpeech.QUEUE_FLUSH, null);
+                t1.speak(getResources().getString(R.string.calling), TextToSpeech.QUEUE_FLUSH, null);
                 while(t1.isSpeaking());
                 num = "tel:" + num;
                 Intent call = new Intent(Intent.ACTION_CALL);
@@ -159,12 +159,12 @@ public class CallActivity extends AppCompatActivity {
                 name=result;
                 num=getPhoneNumber(name,getApplicationContext(),0);
                 if(num.equals("Unsaved")){
-                    t1.speak("No Contact exists.Try again",TextToSpeech.QUEUE_FLUSH,null);
+                    t1.speak(getResources().getString(R.string.no_contact),TextToSpeech.QUEUE_FLUSH,null);
                     while(t1.isSpeaking());
                     promptSpeechInput();
                 }
                 else if(! num.equals("ask num")) {
-                    t1.speak("Calling", TextToSpeech.QUEUE_FLUSH, null);
+                    t1.speak(getResources().getString(R.string.calling), TextToSpeech.QUEUE_FLUSH, null);
                     while(t1.isSpeaking());
                     num = "tel:" + num;
                     Intent call = new Intent(Intent.ACTION_CALL);
@@ -180,14 +180,14 @@ public class CallActivity extends AppCompatActivity {
                     }
                 }
                 else{
-                    t1.speak("Multiple numbers found.Say which number",TextToSpeech.QUEUE_FLUSH,null);
+                    t1.speak(getResources().getString(R.string.multiple_number),TextToSpeech.QUEUE_FLUSH,null);
                     while(t1.isSpeaking());
                     multiplenum=true;
                     promptSpeechInput();
                 }
             }
             else if(! isNumeric(result.replaceAll("\\s+", ""))){
-                t1.speak("Invalid number Try again", TextToSpeech.QUEUE_FLUSH, null);
+                t1.speak(getResources().getString(R.string.invalid_number), TextToSpeech.QUEUE_FLUSH, null);
                 while(t1.isSpeaking());
                 promptSpeechInput();
             }

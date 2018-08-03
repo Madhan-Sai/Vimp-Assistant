@@ -4,8 +4,16 @@
     <string name="mic">Tap Mic to Speak</string>
     <string name="contact_success">Contact added to your device</string>
     <string name="say_command">Say the command!</string>
-    <string name="sorry">Sorry This doesnt work for your device</string>
+    <string name="sorry">Sorry This doesn\'t work for your device</string>
     <string name="bluetooth_on">Bluetooth turned on</string>
     <string name="bluetooth_on_already">Bluetooth is already on</string>
     <string name="bluetooth_off">Bluetooth turned off</string>
+    <string name="invalid_command">Invalid command. Try again</string>
+    <string name="invalid_number">Invalid number. Try again</string>
+    <string name="multiple_number">Multiple numbers found.Say which number</string>
+    <string name="no_contact">No Contact exists.Try again</string>
+    <string name="calling">Calling</string>
+    <string name="num_ok">Number received.Say the Message to proceed</string>
+    <string name="msg_ok">Message received.Say Contact number to proceed</string>
+    <string name="msg_success">Message sent successfully</string>
 </resources>

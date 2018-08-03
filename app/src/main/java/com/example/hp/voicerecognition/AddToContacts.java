@@ -136,7 +136,7 @@ public class AddToContacts extends AppCompatActivity {
                     addToContacts();
             }
             else if((!isNumeric(result.replaceAll("\\s+", "")))){
-                t1.speak("Invalid number Try again", TextToSpeech.QUEUE_FLUSH, null);
+                t1.speak(getResources().getString(R.string.invalid_number), TextToSpeech.QUEUE_FLUSH, null);
                 while(t1.isSpeaking());
                 promptSpeechInput();
             }

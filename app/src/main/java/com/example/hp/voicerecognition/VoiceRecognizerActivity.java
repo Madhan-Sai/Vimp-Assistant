@@ -187,7 +187,7 @@ public class VoiceRecognizerActivity extends AppCompatActivity {
                         System.exit(0);
                     }
                     else if(! yes){
-                        t1.speak("Invalid command. Try again",TextToSpeech.QUEUE_FLUSH,null);
+                        t1.speak(getResources().getString(R.string.invalid_command),TextToSpeech.QUEUE_FLUSH,null);
                         while(t1.isSpeaking());
                         promptSpeechInput();
                     }
