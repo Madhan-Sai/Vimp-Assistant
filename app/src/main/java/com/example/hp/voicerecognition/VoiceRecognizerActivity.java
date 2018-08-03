@@ -81,7 +81,7 @@ public class VoiceRecognizerActivity extends AppCompatActivity {
         Intent i=new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         i.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         i.putExtra(RecognizerIntent.EXTRA_LANGUAGE , Locale.getDefault());
-        i.putExtra(RecognizerIntent.EXTRA_PROMPT,"Say the command!");
+        i.putExtra(RecognizerIntent.EXTRA_PROMPT,getResources().getString(R.string.say_command));
         i.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS,Long.valueOf(10000));
 
         try {
@@ -89,7 +89,7 @@ public class VoiceRecognizerActivity extends AppCompatActivity {
         }
         catch(ActivityNotFoundException a)
         {
-            Toast.makeText(VoiceRecognizerActivity.this,"Sorry This doesn't work for your device",Toast.LENGTH_LONG).show();
+            Toast.makeText(VoiceRecognizerActivity.this,getResources().getString(R.string.sorry),Toast.LENGTH_LONG).show();
         }
     }
 
@@ -167,17 +167,17 @@ public class VoiceRecognizerActivity extends AppCompatActivity {
                             if(! ba.isEnabled()){
                             Intent bluetooth=new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                             startActivityForResult(bluetooth,0);
-                                t1.speak("Bluetooth turned on", TextToSpeech.QUEUE_FLUSH, null);
+                                t1.speak(getResources().getString(R.string.bluetooth_on), TextToSpeech.QUEUE_FLUSH, null);
                                 while(t1.isSpeaking());
                             }
                             else {
-                                t1.speak("Bluetooth is already on", TextToSpeech.QUEUE_FLUSH, null);
+                                t1.speak(getResources().getString(R.string.bluetooth_on_already), TextToSpeech.QUEUE_FLUSH, null);
                                 while(t1.isSpeaking());
                             }
                         }
                         else if(res.get(0).toLowerCase().contains("off")){
                             ba.disable();
-                            t1.speak("Bluetooth turned off", TextToSpeech.QUEUE_FLUSH, null);
+                            t1.speak(getResources().getString(R.string.bluetooth_off), TextToSpeech.QUEUE_FLUSH, null);
                             while(t1.isSpeaking());
                         }
                         promptSpeechInput();

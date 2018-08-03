@@ -2,4 +2,10 @@
     <string name="app_name">VoiceRecognition</string>
     <string name="emptystr" />
     <string name="mic">Tap Mic to Speak</string>
+    <string name="contact_success">Contact added to your device</string>
+    <string name="say_command">Say the command!</string>
+    <string name="sorry">Sorry This doesnt work for your device</string>
+    <string name="bluetooth_on">Bluetooth turned on</string>
+    <string name="bluetooth_on_already">Bluetooth is already on</string>
+    <string name="bluetooth_off">Bluetooth turned off</string>
 </resources>

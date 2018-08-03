@@ -65,7 +65,7 @@ public class AddToContacts extends AppCompatActivity {
         try
         {
             ContentProviderResult[] res = getContentResolver().applyBatch(ContactsContract.AUTHORITY, ops);
-            t1.speak("Contact added to your device", TextToSpeech.QUEUE_FLUSH, null);
+            t1.speak(getResources().getString(R.string.contact_success) , TextToSpeech.QUEUE_FLUSH, null);
             while(t1.isSpeaking());
         }
         catch (Exception e)
@@ -93,13 +93,13 @@ public class AddToContacts extends AppCompatActivity {
         Intent i = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         i.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        i.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say the command!");
+        i.putExtra(RecognizerIntent.EXTRA_PROMPT, getResources().getString(R.string.say_command));
         i.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS,Long.valueOf(10000));
 
         try {
             startActivityForResult(i, Code);
         } catch (ActivityNotFoundException a) {
-            Toast.makeText(AddToContacts.this, "Sorry This doesn't work for your device", Toast.LENGTH_LONG).show();
+            Toast.makeText(AddToContacts.this, getResources().getString(R.string.sorry), Toast.LENGTH_LONG).show();
         }
     }
 

@@ -43,7 +43,7 @@ public class MailActivity extends AppCompatActivity {
         Intent i = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         i.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        i.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say the command!");
+        i.putExtra(RecognizerIntent.EXTRA_PROMPT, getResources().getString(R.string.say_command));
         i.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS,Long.valueOf(10000));
 
         isto=say.contains("to");
@@ -52,7 +52,7 @@ public class MailActivity extends AppCompatActivity {
         try {
             startActivityForResult(i, Code);
         } catch (ActivityNotFoundException a) {
-            Toast.makeText(MailActivity.this, "Sorry This doesn't work for your device", Toast.LENGTH_LONG).show();
+            Toast.makeText(MailActivity.this, getResources().getString(R.string.sorry), Toast.LENGTH_LONG).show();
         }
     }
 
