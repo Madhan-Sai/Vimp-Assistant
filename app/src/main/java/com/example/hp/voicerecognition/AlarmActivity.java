@@ -75,14 +75,14 @@ public class AlarmActivity extends AppCompatActivity {
                 }
                 else ishr=true;
                 if(ishr){
-                    t1.speak("Invalid time Say in Hours", TextToSpeech.QUEUE_FLUSH, null);
+                    t1.speak(getResources().getString(R.string.invalid_hrs), TextToSpeech.QUEUE_FLUSH, null);
                     while(t1.isSpeaking());
-                    promptSpeechInput("Invalid time Say in Hours");
+                    promptSpeechInput(getResources().getString(R.string.invalid_hrs));
                 }
                 else {
-                    t1.speak("Say time in Minutes", TextToSpeech.QUEUE_FLUSH, null);
+                    t1.speak(getResources().getString(R.string.prompt_mins), TextToSpeech.QUEUE_FLUSH, null);
                     while(t1.isSpeaking());
-                    promptSpeechInput("Say time in Minutes");
+                    promptSpeechInput(getResources().getString(R.string.prompt_mins));
                 }
             }
             else if(ismin){
@@ -92,14 +92,14 @@ public class AlarmActivity extends AppCompatActivity {
                 }
                 else ismin=true;
                 if(ismin){
-                    t1.speak("Invalid time Say in Minutes", TextToSpeech.QUEUE_FLUSH, null);
+                    t1.speak(getResources().getString(R.string.invalid_mins), TextToSpeech.QUEUE_FLUSH, null);
                     while(t1.isSpeaking());
-                    promptSpeechInput("Invalid time Say in Minutes");
+                    promptSpeechInput(getResources().getString(R.string.invalid_mins));
                 }
                 else {
-                    t1.speak("Say AM or PM", TextToSpeech.QUEUE_FLUSH, null);
+                    t1.speak(getResources().getString(R.string.am_pm), TextToSpeech.QUEUE_FLUSH, null);
                     while(t1.isSpeaking());
-                    promptSpeechInput("Say AM or PM");
+                    promptSpeechInput(getResources().getString(R.string.am_pm));
                 }
             }
             else if(isam){
@@ -110,10 +110,10 @@ public class AlarmActivity extends AppCompatActivity {
                 alarm.putExtra(AlarmClock.EXTRA_SKIP_UI,true);
                 alarm.putExtra(AlarmClock.EXTRA_HOUR,hr);
                 alarm.putExtra(AlarmClock.EXTRA_MINUTES,min);
-                alarm.putExtra(AlarmClock.EXTRA_MESSAGE,"You set alarm using VIMP");
+                alarm.putExtra(AlarmClock.EXTRA_MESSAGE,getResources().getString(R.string.alarm_name));
                 startActivity(alarm);
 
-                t1.speak("Alarm set successfully", TextToSpeech.QUEUE_FLUSH, null);
+                t1.speak(getResources().getString(R.string.alarm_success), TextToSpeech.QUEUE_FLUSH, null);
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {

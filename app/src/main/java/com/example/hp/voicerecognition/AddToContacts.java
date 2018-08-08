@@ -116,7 +116,7 @@ public class AddToContacts extends AppCompatActivity {
             else if (isNumeric(result.replaceAll("\\s+", ""))) {
                 num = result;
                 if(name==null) {
-                    t1.speak("number received.Say Contact name to proceed", TextToSpeech.QUEUE_FLUSH, null);
+                    t1.speak(getResources().getString(R.string.num_ok_contact), TextToSpeech.QUEUE_FLUSH, null);
                     while(t1.isSpeaking());
                     promptSpeechInput();
                 }
@@ -128,7 +128,7 @@ public class AddToContacts extends AppCompatActivity {
                 name=result;
                 if(num==null)
                 {
-                    t1.speak("name received.Say Contact number to proceed", TextToSpeech.QUEUE_FLUSH, null);
+                    t1.speak(getResources().getString(R.string.msg_ok), TextToSpeech.QUEUE_FLUSH, null);
                     while(t1.isSpeaking());
                     promptSpeechInput();
                 }

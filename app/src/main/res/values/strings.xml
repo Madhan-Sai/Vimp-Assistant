@@ -14,6 +14,13 @@
     <string name="no_contact">No Contact exists.Try again</string>
     <string name="calling">Calling</string>
     <string name="num_ok">Number received.Say the Message to proceed</string>
+    <string name="num_ok_contact">Number received.Say the Contact name to proceed</string>
     <string name="msg_ok">Message received.Say Contact number to proceed</string>
     <string name="msg_success">Message sent successfully</string>
+    <string name="invalid_hrs">Invalid time Say in Hours</string>
+    <string name="prompt_mins">Say time in Minutes</string>
+    <string name="invalid_mins">Invalid time Say in Minutes</string>
+    <string name="am_pm">Say AM or PM</string>
+    <string name="alarm_name">You set alarm using VIMP</string>
+    <string name="alarm_success">Alarm set successfully</string>
 </resources>
